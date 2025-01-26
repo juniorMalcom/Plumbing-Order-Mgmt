@@ -7,9 +7,9 @@ Created on Thu Jan 23 20:48:43 2025
 #sgp supply order guide
 
 #building specs (USER INPUT VARIABLE VALUES) ft
-building_lenght = 100
-building_width = 30
-building_height = 45
+L = 100
+W = 30
+H = 45
 #rooms bed/bath (?bd?ba)
 bd1ba1 = 0
 bd2ba2 = (8*3)
@@ -30,12 +30,12 @@ sides = 0
 
 
 #building calculations
-building_volume = (building_lenght * building_width * building_height)
-building_rooms = (bd1ba1+bd2ba2+bd3ba3+bd3ba2+bd4ba4+bd4ba3)
-bathrooms = ((bd1ba1)+(bd2ba2*2)+(bd3ba3*3)+(bd3ba2*2)+(bd4ba4*4)+(bd4ba3*3))
-kitchens = (building_rooms)
-washer_driers = (building_rooms)
-water_heaters = (building_rooms)
+building_volume = (L * W * H)
+units = (bd1ba1+bd2ba2+bd3ba3+bd3ba2+bd4ba4+bd4ba3)
+baths = ((bd1ba1)+(bd2ba2*2)+(bd3ba3*3)+(bd3ba2*2)+(bd4ba4*4)+(bd4ba3*3))
+kitchens = (units)
+washer_driers = (units)
+water_heaters = (units)
 total_showers = (handicaps_bathrooms + showers)
 tub_valves = (offset_right + offset_left + straight_valve + shower_valve)
 tubs = (bathrooms - showers - handicaps_bathrooms)
@@ -43,7 +43,7 @@ tubs = (bathrooms - showers - handicaps_bathrooms)
 
 #MATERIALS NEEDED FOR TUB VALES
 print ("Materials needed for tub valves:")
-print ('tub valves: ' + str(bathrooms))
+print ('tub valves: ' + str(baths))
 print ('brass adapters : ' + str((tub_valves * sides) - ((offset_right + offset_left + straight_valve) * 1)))
 print ('copper adapter: ' + str(offset_right + offset_left + straight_valve))
 print ('copper elbows: ' + str(((offset_right + offset_left) * 2) + straight_valve))
@@ -88,16 +88,16 @@ else:
 # MATERIALS NEEDED FINAL FORMULAS
 # ROUGH-IN STAGE 1
 #STAGE 1.1: WATER SUPPLY
-print ('3/4 pex valves: ' + str(building_rooms))
-print ('3/4 copper/pex cpvc adapter : ' + str(building_rooms))
-print ('ox box empty: ' + str(building_rooms))
+print ('3/4 pex valves: ' + str(units))
+print ('3/4 copper/pex cpvc adapter : ' + str(units))
+print ('ox box empty: ' + str(units))
 # 1/2 red pex
 # 1/2 blue pex
 # 3/4 red pex 
 # 3/4 blue pex 
 
 #STAGE 1.2
-print ('1/2 pex caps: ' + str(((bathrooms * 3) + (kitchens * 2)) * building_rooms))
+print ('1/2 pex caps: ' + str(((baths * 3) + (kitchens * 2)) * units))
 
 
 
