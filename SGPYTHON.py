@@ -50,7 +50,7 @@ print ('copper elbows: ' + str(((offset_right + offset_left) * 2) + straight_val
 print ('1/2 crimp rings: ' + str(shower_valve))
 print ('1/2 caps: ' + str(shower_valve))
 print ('1/2 pex tube: ' + str(shower_valve) + 'inches')
-print ('blue copper pipe: ' + str(((tub_valves - total_showers) * 4) + 'inches'))
+print ('blue copper pipe: ' + str(((tub_valves - total_showers) * 4)) + ('inches'))
 print ('red copper pipe: ' + str(((((offset_right + offset_left) * 2) + (straight_valve))) * 4 ))
        
 if tub_valves >= 300:
@@ -63,14 +63,14 @@ if (offset_right + offset_left + straight_valve) >= 200:
 else:
   print ('flux: 1')
 
-if (tub_valves * sides) >=  1000
+if (tub_valves * sides) >=  1000:
  print ('teflon tape: 15')
 elif (tub_valves * sides) >750:
  print ('teflon tape: 10'       
 elif (tub_valves * sides) >500:
  print ('teflon tape: 7')    
 elif (tub_valves * sides) < 500:
- print ('teflon tape: 5')
+ print ('teflon tape:  5')
 
 if (offset_right + offset_left + straight_valve) >= 200:
  print ('fire gas: 2')
