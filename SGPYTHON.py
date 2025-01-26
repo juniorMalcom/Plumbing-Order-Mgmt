@@ -26,28 +26,31 @@ offset_left = 0
 straight_valve = 0
 shower_valve = 0
 sides = 0
+#other details
 
 
 #building calculations
 building_volume = (building_lenght * building_width * building_height)
 building_rooms = (bd1ba1+bd2ba2+bd3ba3+bd3ba2+bd4ba4+bd4ba3)
 bathrooms = ((bd1ba1)+(bd2ba2*2)+(bd3ba3*3)+(bd3ba2*2)+(bd4ba4*4)+(bd4ba3*3))
-kitchens = (bd1ba1+bd2ba2+bd3ba3+bd3ba2+bd4ba4+bd4ba3)
-washer_driers = (bd1ba1+bd2ba2+bd3ba3+bd3ba2+bd4ba4+bd4ba3)
-water_heaters = (bd1ba1+bd2ba2+bd3ba3+bd3ba2+bd4ba4+bd4ba3)
+kitchens = (building_rooms)
+washer_driers = (building_rooms)
+water_heaters = (building_rooms)
 total_showers = (handicaps_bathrooms + showers)
 tub_valves = (offset_right + offset_left + straight_valve + shower_valve)
+tubs = (bathrooms - showers - handicaps_bathrooms)
 
 
 #MATERIALS NEEDED FOR TUB VALES
-print ("Materials needed for tub valves:)
+print ("Materials needed for tub valves:")
+print ('tub valves: ' + str(bathrooms))
 print ('brass adapters : ' + str((tub_valves * sides) - ((offset_right + offset_left + straight_valve) * 1)))
 print ('copper adapter: ' + str(offset_right + offset_left + straight_valve))
 print ('copper elbows: ' + str(((offset_right + offset_left) * 2) + straight_valve))
 print ('1/2 crimp rings: ' + str(shower_valve))
 print ('1/2 caps: ' + str(shower_valve))
 print ('1/2 pex tube: ' + str(shower_valve) + 'inches')
-print ('blue copper pipe: ' + str(((tub_valves - total_showers) * 4) + 'inches')
+print ('blue copper pipe: ' + str(((tub_valves - total_showers) * 4) + 'inches'))
 print ('red copper pipe: ' + str(((((offset_right + offset_left) * 2) + (straight_valve))) * 4 ))
        
 if tub_valves >= 300:
@@ -83,23 +86,39 @@ else:
 
 
 # MATERIALS NEEDED FINAL FORMULAS
-#Rough-In
+# ROUGH-IN STAGE 1
+#STAGE 1.1: WATER SUPPLY
+print ('3/4 pex valves: ' + str(building_rooms))
+print ('3/4 copper/pex cpvc adapter : ' + str(building_rooms))
+print ('ox box empty: ' + str(building_rooms))
+# 1/2 red pex
+# 1/2 blue pex
+# 3/4 red pex 
+# 3/4 blue pex 
+
+#STAGE 1.2
+print ('1/2 pex caps: ' + str(((bathrooms * 3) + (kitchens * 2)) * building_rooms))
+
+
+
+#STAGE 1.?: PRE INSPECTION
 fire_caulk=((bd1ba1*0.5)+(bd2ba2*0.75)+(bd3ba3*1)+(bd3ba2*0.85)+(bd4ba4*1.3)+(bd4ba3*1.15))
 print('fire caulk: ' + str(fire_caulk))
 nail_plates=((bd1ba1*3)+(bd2ba2*5)+(bd3ba3*8)+(bd3ba2*7)+(bd4ba4*10)+(bd4ba3*9))
 stud_guards=((bd1ba1*5)+(bd2ba2*7)+(bd3ba3*10)+(bd3ba2*9)+(bd4ba4*12)+(bd4ba3*11))
 print('nail plates: ' + str(nail_plates) + ' or ' + str(nail_plates/25) + ' boxes')
 print('stud guards: ' + str(stud_guards) + ' or ' + str(stud_guards/50) + ' boxes')
-tubs = (bathrooms - showers - handicaps_bathrooms)
 print ('tubs: ' + str(tubs))
 print ('showers: ' + str(showers))
 print ('handicap showers: ' + str(handicaps_bathrooms))
+print ('tub trim and drains: ' + str(tubs))
+
+
 
 
 
 #Finishings 
 print ("toliets: " + str(bathrooms) )
 print ('Bathroom Sinks: ' + str(bathrooms))
-print ('tub valves: ' + str(bathrooms))
 print ('shower heads: ' + str(bathrooms))
 print ('tub drains: ' + str(bathrooms))
